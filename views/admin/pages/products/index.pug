@@ -1,0 +1,42 @@
+extends ../../layouts/default.pug
+
+block main
+    h1 Danh sách sản phẩm 
+
+    table.table.table-hover.table-sm
+        thead
+            tr
+                th STT
+                th Hình ảnh
+                th Tiêu đề
+                th Giá
+                th Trạng thái
+                th Thao tác
+        tbody
+            tr
+                td 1
+                td
+                    i.fas.fa-image
+                td Sản phẩm 1
+                td 100.000 VNĐ
+                td
+                    a(href="#" class="btn btn-sm btn-success") Hoạt động
+                td
+                    button(class="btn btn-sm btn-primary")
+                        i.fas.fa-edit
+                    button(class="btn btn-sm btn-danger")
+                        i.fas.fa-trash
+
+                tr
+                td 2
+                td
+                    i.fas.fa-image
+                td Sản phẩm 2
+                td 100.000 VNĐ
+                td
+                    a(href="#" class="btn btn-sm btn-danger") Ngưng hoạt động
+                td
+                    button(class="btn btn-sm btn-primary")
+                        i.fas.fa-edit
+                    button(class="btn btn-sm btn-danger")
+                        i.fas.fa-trash
