@@ -1,4 +1,26 @@
 extends ../../layouts/default.pug
+include ../../mixins/box-head.pug
 
 block main
-    h1 Danh sách sản phẩm
+    .container.my-3
+        .row
+            .col-12
+                +box-head("Danh sách sản phẩm")
+        
+
+        .row
+            .col-4.mb-3
+                .product-grid
+                    .product-card
+                        .product-image
+                            i.fas.fa-box
+                        .product-title Sản phẩm 1
+                        .product-description Mô tả chi tiết về sản phẩm 1. Đây là một sản phẩm chất lượng cao với nhiều tính năng hữu ích.
+                        .product-price 1,500,000 VNĐ
+                        button.btn.btn-primary Thêm vào giỏ hàng
+
+        
+            
+                
+            
+                

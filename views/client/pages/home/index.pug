@@ -1,4 +1,12 @@
 extends ../../layouts/default.pug
 
 block main
-    h1 Trang chủ
+    .home-page
+        .container
+            .row.justify-content-center
+                .col-lg-8.text-center
+                    h1 Chào mừng đến với hệ thống quản lý sản phẩm
+                    p.subtitle Hệ thống quản lý sản phẩm hiện đại và dễ sử dụng
+                    .cta-buttons
+                        a.btn.btn-primary(href="/products") Xem sản phẩm
+                        a.btn.btn-outline(href="/admin") Quản lý
