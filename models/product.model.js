@@ -10,9 +10,9 @@ const productSchema = new mongoose.Schema(
         rating: Number,
         stock: Number,
         thumbnail: String,
-        status: Boolean,
+        status: String,
         deleted: Boolean,
-        position: Number,
+        position: Number
     }
 );
 

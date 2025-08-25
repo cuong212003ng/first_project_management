@@ -9,15 +9,19 @@ block main
         
 
         .row
-            .col-4.mb-3
-                .product-grid
-                    .product-card
-                        .product-image
-                            i.fas.fa-box
-                        .product-title Sản phẩm 1
-                        .product-description Mô tả chi tiết về sản phẩm 1. Đây là một sản phẩm chất lượng cao với nhiều tính năng hữu ích.
-                        .product-price 1,500,000 VNĐ
-                        button.btn.btn-primary Thêm vào giỏ hàng
+            each item in products
+                .col-4.mb-3
+                    .product-grid
+                        .product-card
+                            .product-image
+                                img(
+                                    src=item.thumbnail,
+                                    alt=item.title
+                                )
+                            .product-title #{item.title}
+                            .product-description #{item.description}
+                            .product-price #{item.price} $
+                            button.btn.btn-primary Thêm vào giỏ hàng
 
         
             
