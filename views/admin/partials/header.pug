@@ -1,0 +1,42 @@
+header.header
+    .container-fluid
+        .row.align-items-center.g-0
+            .col-3.col-md-3
+                .inner-logo
+                    a.navbar-brand(href=`${prefixAdmin}/dashboard`)
+                        i.fas.fa-cube
+                        span ADMIN
+            
+            .col-9
+                .header-right
+                    .header-nav
+                        .nav-item
+                            a.nav-link(href=`${prefixAdmin}/notifications`)
+                                i.fas.fa-bell
+                                span.badge.badge-danger 3
+                        
+                        .nav-item
+                            a.nav-link(href=`${prefixAdmin}/messages`)
+                                i.fas.fa-envelope
+                                span.badge.badge-warning 5
+                        
+                        .nav-item.dropdown
+                            a.nav-link.dropdown-toggle(href="#" role="button" data-bs-toggle="dropdown")
+                                i.fas.fa-user-circle
+                                span Admin User
+                            
+                            ul.dropdown-menu
+                                li
+                                    a.dropdown-item(href=`${prefixAdmin}/profile`)
+                                        i.fas.fa-user
+                                        span Hồ sơ
+                                li
+                                    a.dropdown-item(href=`${prefixAdmin}/settings`)
+                                        i.fas.fa-cog
+                                        span Cài đặt
+                                li
+                                    hr.dropdown-divider
+                                li
+                                    a.dropdown-item(href=`${prefixAdmin}/logout`)
+                                        i.fas.fa-sign-out-alt
+                                        span Đăng xuất

@@ -1,0 +1,26 @@
+.sider
+    .sider-inner
+        .sider-header
+            h3.sider-title
+                i.fas.fa-tachometer-alt
+                span Dashboard
+        
+        .sider-menu
+            ul.menu-list
+                li.menu-item
+                    a.menu-link(href=`${prefixAdmin}/dashboard` class=pageTitle === "Trang tổng quan" ? "active" : "")
+                        i.fas.fa-home
+                        span Quản lý tổng quan
+                
+                li.menu-item
+                    a.menu-link(href=`${prefixAdmin}/products` class=pageTitle === "Quản lý sản phẩm" ? "active" : "")
+                        i.fas.fa-box
+                        span Quản lý sản phẩm
+                   
+        .sider-footer
+            .user-info
+                .user-avatar
+                    i.fas.fa-user-circle
+                .user-details
+                    .user-name Admin User
+                    .user-role Administrator
