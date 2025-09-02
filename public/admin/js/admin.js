@@ -4,7 +4,7 @@ const buttonStatus = document.querySelectorAll("[button-status]")
 if(buttonStatus.length > 0){
 
     let url = new URL(window.location.href)
-    console.log(url);
+    //console.log(url);
     
     buttonStatus.forEach(button => {
         button.addEventListener("click", () => {
@@ -24,6 +24,28 @@ if(buttonStatus.length > 0){
     })
 }
 
+//Button Under 20$
+const buttonUnder20 = document.querySelector("[button_under_20]")
+
+if(buttonUnder20){
+    buttonUnder20.addEventListener("click", () => {
+        let url = new URL(window.location.href)
+
+        const price = buttonUnder20.getAttribute("button_under_20")
+
+        if(price){
+            url.searchParams.set("price", price)
+        } else {
+            url.searchParams.delete("price")
+        }
+        
+        window.location.href = url.href
+
+    })
+}
+//End Button Under 20$
+
+
 //End Button Status
 
 //Form Search
@@ -34,7 +56,7 @@ if(formSearch){
     formSearch.addEventListener("submit", (e) => {
         e.preventDefault()
 
-        console.log(e.target.keyword.value);
+        //console.log(e.target.keyword.value);
 
         const keyword = e.target.keyword.value
         if(keyword) {

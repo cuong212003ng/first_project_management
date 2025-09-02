@@ -13,6 +13,10 @@ block main
                             class=`btn btn-sm ms-1 btn-outline-success ${item.class}`
                             button-status=item.value
                         ) #{item.name}
+                    button(
+                        class="btn btn-sm ms-1 btn-outline-success"
+                        button_under_20="true"
+                    ) Sản phẩm dưới 20 $
                 .col-6  
                     form(id="form-search")
                         .input-group 
@@ -20,7 +24,8 @@ block main
                                 type="text"
                                 class="form-control"
                                 placeholder="Nhập từ khóa"
-                                name="keyword"
+                                name="keyword",
+                                value=keyword
                             )
                             .input-group-append     
                                 button(
