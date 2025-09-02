@@ -24,28 +24,6 @@ if(buttonStatus.length > 0){
     })
 }
 
-//Button Under 20$
-const buttonUnder20 = document.querySelector("[button_under_20]")
-
-if(buttonUnder20){
-    buttonUnder20.addEventListener("click", () => {
-        let url = new URL(window.location.href)
-
-        const price = buttonUnder20.getAttribute("button_under_20")
-
-        if(price){
-            url.searchParams.set("price", price)
-        } else {
-            url.searchParams.delete("price")
-        }
-        
-        window.location.href = url.href
-
-    })
-}
-//End Button Under 20$
-
-
 //End Button Status
 
 //Form Search
