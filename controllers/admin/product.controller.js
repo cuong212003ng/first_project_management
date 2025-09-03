@@ -15,11 +15,35 @@ module.exports.product = async (req, res) => {
     // Đoạn tìm kiếm
     
     const objectSearch = SearchHelper(req.query)
-    console.log(objectSearch);
+    // console.log(objectSearch);
 
     if(objectSearch.regex) {
         find.title = objectSearch.regex
     }
+
+
+    // Pagination
+    let objectPagination = {
+        currentPage: 1,
+        limitItem: 4
+    }
+
+
+    if(req.query.page) {
+        objectPagination.currentPage = parseInt(req.query.page) 
+    }
+
+    objectPagination.skip = (objectPagination.currentPage - 1) * objectPagination.limitItem
+
+    console.log(objectPagination.skip);
+
+    const countProducts =  await Product.countDocuments(find)
+
+    const totalPage =  Math.ceil(countProducts / objectPagination.limitItem)
+
+    objectPagination.totalPage = totalPage
+
+    // End pagination
 
     // Đoạn lọc trạng thái
     if (req.query.status) {
@@ -27,12 +51,13 @@ module.exports.product = async (req, res) => {
     }
 
     // Đoạn lấy dữ liệu
-    const products = await Product.find(find)
+    const products = await Product.find(find).limit(objectPagination.limitItem).skip(objectPagination.skip)
 
     res.render("admin/pages/products/index", {
         titlePage: "Quản lý sản phẩm",
         products: products,
         filterStatus: filterStatus,
-        keyword: objectSearch.keyword
+        keyword: objectSearch.keyword,
+        pagination: objectPagination,
     })
 }
