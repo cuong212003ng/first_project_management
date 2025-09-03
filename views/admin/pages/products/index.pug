@@ -45,9 +45,21 @@ block main
                             td= item.price + " $"
                             td
                                 if item.status === "active"
-                                    a(href="#" class="btn btn-sm btn-success") Hoạt động
+                                    a(
+                                        href="javascript:;"
+                                        data-status=item.status
+                                        data-id=item._id
+                                        button-change-status
+                                        class="btn btn-sm btn-success"
+                                    ) Hoạt động
                                 else
-                                    a(href="#" class="btn btn-sm btn-danger") Dừng hoạt động
+                                    a(
+                                        href="javascript:;"
+                                        data-status=item.status
+                                        data-id=item._id
+                                        button-change-status
+                                        class="btn btn-sm btn-danger"
+                                    ) Dừng hoạt động
                             td
                                 button(class="btn btn-sm btn-primary")
                                     i.fas.fa-edit
@@ -55,5 +67,15 @@ block main
                                     i.fas.fa-trash
 
     +pagination(pagination)
+
+    form(
+        action=``
+        method="POST"
+        id="form-change-status"
+        data-path=`${prefixAdmin}/products/change-status`
+    )
+
+
+    script(src="/admin/js/product.js")
+
     
-                

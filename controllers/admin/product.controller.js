@@ -12,19 +12,17 @@ module.exports.product = async (req, res) => {
 
     // Đoạn bộ lọc
     const filterStatus = filterStatusHelper(req.query)
-    // End bộ lọc
 
     // Đoạn tìm kiếm
     
     const objectSearch = SearchHelper(req.query)
-    // console.log(objectSearch);
 
     if(objectSearch.regex) {
         find.title = objectSearch.regex
     }
 
 
-    // Pagination
+    // Đoạn phân trang
     const countProducts =  await Product.countDocuments(find)
 
     let objectPagination = paginationHelper(
@@ -36,8 +34,6 @@ module.exports.product = async (req, res) => {
         req.query
 
     )
-
-    // End pagination
 
     // Đoạn lọc trạng thái
     if (req.query.status) {
@@ -54,4 +50,16 @@ module.exports.product = async (req, res) => {
         keyword: objectSearch.keyword,
         pagination: objectPagination
     })
+}
+
+//[GET] /admin/products/change-status/:status/:id
+module.exports.changeStatus = async (req, res) => {
+    // console.log(req.params);
+    const status = req.params.status
+    const id = req.params.id
+
+    await Product.updateOne({ _id: id }, { status: status })
+    
+    res.redirect(`..`)
+    // res.send(`${status} - ${id}`)
 }
