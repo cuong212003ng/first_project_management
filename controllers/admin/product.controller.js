@@ -2,7 +2,7 @@ const Product = require('../../models/product.model')
 const filterStatusHelper = require('../../helpers/filterStatus')
 const SearchHelper = require('../../helpers/Search')
 const paginationHelper = require('../../helpers/pagination')
-
+const systemConfig = require('../../config/system')
 
 //[GET] /admin/products
 module.exports.product = async (req, res) => {
@@ -60,6 +60,9 @@ module.exports.changeStatus = async (req, res) => {
 
     await Product.updateOne({ _id: id }, { status: status })
     
-    res.redirect(`..`)
     // res.send(`${status} - ${id}`)
+    res.redirect(req.get('referer') || req.originalUrl || '/');
+
+
+
 }
